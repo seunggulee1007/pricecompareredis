@@ -2,6 +2,7 @@ package com.growthgenius.pricecompareredis.controller;
 
 import com.growthgenius.pricecompareredis.service.LowestPriceService;
 import com.growthgenius.pricecompareredis.vo.Product;
+import com.growthgenius.pricecompareredis.vo.ProductGroup;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,11 @@ public class LowestPriceController {
     @PutMapping("/product")
     public int setProduct(@RequestBody Product product) {
         return lowestPriceService.setProduct(product);
+    }
+
+    @PutMapping("/product/group")
+    public int setProductGroup(@RequestBody ProductGroup productGroup) {
+        return lowestPriceService.setProductGroup(productGroup);
     }
 
 }
