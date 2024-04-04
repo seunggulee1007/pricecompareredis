@@ -37,4 +37,9 @@ public class LowestPriceServiceImpl implements LowestPriceService {
         return Objects.requireNonNull(redisTemplate.opsForZSet().zCard(productGroup.getProductGroupId())).intValue();
     }
 
+    public int setNewProductGroupToKeyword(String keyword, String productGroupId, double score) {
+        redisTemplate.opsForZSet().add(keyword, productGroupId, score);
+        return Objects.requireNonNull(redisTemplate.opsForZSet().rank(keyword, productGroupId)).intValue();
+    }
+
 }

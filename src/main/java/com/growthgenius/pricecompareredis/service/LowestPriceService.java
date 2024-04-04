@@ -13,4 +13,6 @@ public interface LowestPriceService {
 
     int setProductGroup(ProductGroup productGroup);
 
+    int setNewProductGroupToKeyword(String keyword, String productGroupId, double score);
+
 }
