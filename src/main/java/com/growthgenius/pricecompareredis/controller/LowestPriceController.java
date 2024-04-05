@@ -3,6 +3,7 @@ package com.growthgenius.pricecompareredis.controller;
 import com.growthgenius.pricecompareredis.service.LowestPriceService;
 import com.growthgenius.pricecompareredis.vo.Product;
 import com.growthgenius.pricecompareredis.vo.ProductGroup;
+import com.growthgenius.pricecompareredis.vo.SearchKeyword;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,11 @@ public class LowestPriceController {
     @PutMapping("/product/group/keyword")
     public int setNewProductGroupToKeyword(String keyword, String productGroupId, double score) {
         return lowestPriceService.setNewProductGroupToKeyword(keyword, productGroupId, score);
+    }
+
+    @GetMapping("/product/price/lowest")
+    public SearchKeyword getLowestPriceProductByKeyword(String keyword) {
+        return lowestPriceService.getLowestPriceProductByKeyword(keyword);
     }
 
 }
